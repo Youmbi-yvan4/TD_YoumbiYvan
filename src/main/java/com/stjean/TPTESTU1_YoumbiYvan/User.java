@@ -101,6 +101,18 @@ public class User {
         }
         users.remove(user);
     }
+    public double analyseSoldeGeneral() throws NegativeGeneralBalanceException {
+        double generalBalance = users.stream().mapToDouble(User::getBalancePersonnel).sum();
+        if (generalBalance < 0) {
+            throw new NegativeGeneralBalanceException("Negative general balance");
+        }
+        return generalBalance;
+    }
+
+    public User richestUser() {
+        return users.stream().max(Comparator.comparingDouble(User::getBalancePersonnel)).orElse(null);
+    }
+
 
     public ArrayList<User> list() {
         return users;
@@ -112,6 +124,12 @@ public class User {
 
     private boolean validateEmail(String email) {
         return email.contains("@");
+    }
+
+    class NegativeGeneralBalanceException extends RuntimeException {
+        public NegativeGeneralBalanceException(String message) {
+            super(message);
+        }
     }
 
 }
