@@ -22,6 +22,15 @@ public class TestOperationMathematique {
         assertEquals(1, operation.factorial(1), "Factorial of 1 should be 1");
         assertEquals(120, operation.factorial(5), "Factorial of 5 should be 120");
     }
+
+    @Test
+    public void testFactorialNegativeException() {
+        OperationMathematique operation = new OperationMathematique();
+        assertThrows(IllegalParamISIException.class, () -> {
+            operation.factorial(-1);
+        }, "Factorial of a negative number should throw IllegalParamISIException");
+    }
+
     @Test
     public void testSort() {
         OperationMathematique operation = new OperationMathematique();
