@@ -24,5 +24,16 @@ public class OperationMathematique {
         }
         return sorted;
     }
+
+    public double maxNumba(double[] values) {
+        double max = Double.NEGATIVE_INFINITY;
+        for (double value : values) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
+    }
+
 }
 

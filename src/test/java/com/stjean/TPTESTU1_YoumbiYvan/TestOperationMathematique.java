@@ -39,4 +39,12 @@ public class TestOperationMathematique {
         assertArrayEquals(sorted, operation.sort(unsorted), "Array should be sorted in descending order");
     }
 
+    @Test
+    public void testMaxNumba() {
+        OperationMathematique operation = new OperationMathematique();
+        double[] values = {1.2, 3.4, 2.2, 5.1, 4.8};
+        assertEquals(5.1, operation.maxNumba(values), 0.0001, "Max value should be 5.1");
+    }
+
+
 }
