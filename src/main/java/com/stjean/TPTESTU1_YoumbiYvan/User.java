@@ -86,4 +86,32 @@ public class User {
     public static void setUsers(ArrayList<User> users) {
         User.users = users;
     }
+
+    public void add(User user) {
+        if (!validateEmail(user.email)) {
+            throw new EmailInvalidException("Invalid email");
+        }
+        users.add(user);
+    }
+
+    public void delete(int id) {
+        User user = users.stream().filter(u -> u.id == id).findFirst().orElse(null);
+        if (user == null) {
+            throw new DeletionInvalidException("User not found");
+        }
+        users.remove(user);
+    }
+
+    public ArrayList<User> list() {
+        return users;
+    }
+
+    public User display(int id) {
+        return users.stream().filter(u -> u.id == id).findFirst().orElse(null);
+    }
+
+    private boolean validateEmail(String email) {
+        return email.contains("@");
+    }
+
 }
