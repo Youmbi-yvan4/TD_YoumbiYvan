@@ -1,7 +1,11 @@
 package com.stjean.TPTESTU1_YoumbiYvan;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Test;
 
 public class TestUserOperations {
     @Test
